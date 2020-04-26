@@ -43,6 +43,10 @@ function checkAnswer(answerPosition) {
 
     //if.. answer is correct, score + time goes up 
     let currentQuestion = questions[currentQuestionPosition];
+    let noQuestionsLeft = !currentQuestion;
+    if(noQuestionsLeft) {
+        return endGame();
+    }
     let isCorrect = answerPosition === currentQuestion.correct;
     if (isCorrect) {
         score = score + 10
@@ -52,9 +56,23 @@ function checkAnswer(answerPosition) {
     else {
         timeLeft = timeLeft - 5
     }
+
+    // go to next question
+    currentQuestionPosition = currentQuestionPosition + 1
+    displayQuestion()
 }
 
-//If answer is incorrect, decrease time on timer (5 seconds)
+function endGame() {
+    // hide game
+    quiz.style.display = "none";
+
+    // show score
+    result.innerHTML = score
+    // alert('Congrats! your score is: ' + score);
+}
+
+
+
 
 
 // Quiz is over, high score page will show 
