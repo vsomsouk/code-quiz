@@ -8,7 +8,6 @@ let questions = [
         thirdanswer: "No meaning - HTML",
         fourthanswer: "Hypertext Markup Language",
         correct: "fourthanswer"
-
     },
     {
         question: "What does CSS stand for?",
