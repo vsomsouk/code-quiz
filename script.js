@@ -26,7 +26,7 @@ function displayQuestion() {
 
 //Timer once quiz starts
 function startQuiz() {
-    start.style.display = "none"
+    start.style.display = "none";
     quiz.style.display = "block";
     displayQuestion();
     setInterval (displayTimeLeft, 1000);
@@ -35,12 +35,12 @@ function displayTimeLeft() {
     counter.innerHTML = timeLeft
     timeLeft = timeLeft - 1;
 }
+
 // User selects an answer
 //If answer is correct, increase time on timer (5 seconds)
 function checkAnswer(answerPosition) {
     // answerPosition: 'fourthanswer'
     // currentQuestion.correct: 'fourthanswer'
-
     //if.. answer is correct, score + time goes up 
     let currentQuestion = questions[currentQuestionPosition];
     let noQuestionsLeft = !currentQuestion;
@@ -49,22 +49,23 @@ function checkAnswer(answerPosition) {
     }
     let isCorrect = answerPosition === currentQuestion.correct;
     if (isCorrect) {
-        score = score + 10
-        timeLeft = timeLeft + 5
+        score = score + 10;
+        timeLeft = timeLeft + 5;
     }
-    // else..answer is wrong, lose time
+    // else..answer is wrong, lose time (10 seconds)
     else {
-        timeLeft = timeLeft - 5
+        timeLeft = timeLeft - 10;
     }
 
     // go to next question
-    currentQuestionPosition = currentQuestionPosition + 1
+    currentQuestionPosition = currentQuestionPosition + 1;
     displayQuestion()
 }
 
 function endGame() {
     // hide game
     quiz.style.display = "none";
+    clearInterval(timeLeft);
 
     // show score
     result.innerHTML = score
@@ -72,10 +73,4 @@ function endGame() {
 }
 
 
-
-
-
-// Quiz is over, high score page will show 
-
-//Submit name and add to high score page
 
