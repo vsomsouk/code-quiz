@@ -8,5 +8,5 @@ User will be greeted with a blue button to start their quiz. Once they press the
 
  https://vsomsouk.github.io/code-quiz/
 
-<img src="./Assets/quizimg.jpg">
+<img src="Assets/quizimg.jpg">
 
